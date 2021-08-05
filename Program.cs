@@ -12,12 +12,6 @@ namespace JurassicPark
         public int Weight { get; set; }
         public int EnclosureNumber { get; set; }
 
-        static void MeatEaterOrHerbivore()
-        {
-            var carnivores = new List<string>();
-            var herbivores = new List<string>();
-        }
-
     }
     class Program
     {
@@ -57,7 +51,7 @@ namespace JurassicPark
             }
             else
             {
-                Console.WriteLine("Sorry, that was not a valid weight. I'm going to use 0 as the weight.");
+                Console.WriteLine("Sorry, that was not valid. I'm going to use 0 as your number.");
                 return 0;
             }
         }
@@ -107,6 +101,7 @@ namespace JurassicPark
                     dinosaur.EnclosureNumber = PromptForInteger("What enclosure will this dinosaur be kept in? ");
 
                     dinoList.Add(dinosaur);
+
                 }
                 else
                 if (choice == "R")
@@ -134,8 +129,6 @@ namespace JurassicPark
                             dinoList.Remove(foundDinosaur);
                         }
                     }
-
-
 
                 }
                 else
@@ -165,7 +158,14 @@ namespace JurassicPark
                 else
                 if (choice == "S")
                 {
-                    Console.WriteLine("Summary of dinosaur");
+                    Console.WriteLine("Summary of dinosaurs:");
+                    Console.WriteLine();
+
+                    var herbivores = dinoList.Select(dinosaur => dinosaur.DietType == "herbivore");
+                    var carnivores = dinoList.Select(dinosaur => dinosaur.DietType == "carnivore");
+
+                    Console.WriteLine($"There are {herbivores.Count()} herbivore dinosaurs, and {carnivores.Count()} carnivore dinosaurs");
+
                 }
                 else
                 {
@@ -173,8 +173,5 @@ namespace JurassicPark
                 }
             }
         }
-
-
     }
 }
-
