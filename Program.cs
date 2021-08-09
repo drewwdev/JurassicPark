@@ -161,8 +161,8 @@ namespace JurassicPark
                     Console.WriteLine("Summary of dinosaurs:");
                     Console.WriteLine();
 
-                    var carnivores = dinoList.Where(dinosaur => dinosaur.DietType == "carnivore").Count();
-                    var herbivores = dinoList.Where(dinosaur => dinosaur.DietType == "herbivore").Count();
+                    var carnivores = dinoList.Where(dinosaur => dinosaur.DietType == "CARNIVORE").Count();
+                    var herbivores = dinoList.Where(dinosaur => dinosaur.DietType == "HERBIVORE").Count();
 
                     Console.WriteLine($"There are {herbivores} herbivore dinosaurs, and {carnivores} carnivore dinosaurs");
 
